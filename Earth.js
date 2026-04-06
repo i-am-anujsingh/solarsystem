@@ -17,12 +17,12 @@ let deltaY = 0;
 
 
 const camera = new THREE.PerspectiveCamera(
-    1500,
+    10,
     window.innerWidth / window.innerHeight,
-    0.2,
+    0.1,
     10
 );
-camera.position.z = 250;
+camera.position.z = 10;
 
 const scene = new THREE.Scene();
 
@@ -34,9 +34,9 @@ loader.load(
     "./assets/earth.glb", // FIXED PATH
     function (gltf) {
         spiderMan = gltf.scene;
-        spiderMan.position.y = 50;
-        spiderMan.position.x = 70;
-        spiderMan.rotation.x = -Math.PI / 6; // FIXED
+        spiderMan.position.y = -10;
+        spiderMan.position.x = 0;
+        // spiderMan.rotation.x = -Math.PI / 6; // FIXED
         scene.add(spiderMan);
         // console.log(gltf.animations[0]);
         mixer = new THREE.AnimationMixer(spiderMan);
@@ -58,16 +58,12 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.querySelector(".container3d").appendChild(renderer.domElement);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 // LIGHT
-const ambientLight = new THREE.AmbientLight(0xeedb00, 2); // FIXED SPELLING
+const ambientLight = new THREE.AmbientLight(0xffffff, 2); // FIXED SPELLING
 scene.add(ambientLight);
 
-const topLight = new THREE.DirectionalLight(0xeedb00, 2.5);
+const topLight = new THREE.DirectionalLight(0xffffff, 2.5);
 topLight.position.set(500, 500, 500);
 scene.add(topLight);
-
-const hemiLight = new THREE.HemisphereLight(0xeedb00, 0xeedb00, 2);
-scene.add(hemiLight);
-
 
 // RENDER LOOP
 const reRender3D = () => {
@@ -111,6 +107,3 @@ window.addEventListener("scroll", () => {
     scrollY = window.scrollY;
     // camera.position.z -+ 1 
 });
-
-const raycaster = new THREE.Raycaster();
-const mouse = new THREE.Vector2();
