@@ -1,6 +1,7 @@
-import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-
+// import * as THREE from "three";
+// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.module.js";
+import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.150.1/examples/jsm/loaders/GLTFLoader.js";
 
 // let planets = {
 //     "object_5": "Mercury",
@@ -43,7 +44,7 @@ let mixer;
 const loader = new GLTFLoader();
 
 loader.load(
-    "../models3D/solar_system_animation.glb", // FIXED PATH
+    "./assets/solar_system_animation.glb", // FIXED PATH
     function (gltf) {
         spiderMan = gltf.scene;
         spiderMan.position.y = -3;

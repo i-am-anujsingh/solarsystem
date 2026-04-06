@@ -1,1 +1,27 @@
-Earth
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="space" class="space">
+        <div class="stars"></div>
+    </div>
+    <!-- to contain the 3d model -->
+    <div class="container3d"></div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.module.js",
+            "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.150.1/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="./Earth.js"></script>
+    <script src="./starBg.js"></script>
+</body>
+</html>
