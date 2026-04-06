@@ -1,24 +1,27 @@
-import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.module.js";
+import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.150.1/examples/jsm/loaders/GLTFLoader.js";
 
 let scrollY = 0;
+let mouseX = 0;
+let mouseY = 0;
 let isSelected = false;
 let isDragable = false;
 let autoRotate = true;
 
 let previousMouseX = 1;
 let previousMouseY = 1;
-let deltaX = 1;
+// let camPositioning = 0;
+let deltaX = -1;
 let deltaY = 0;
 
 
 const camera = new THREE.PerspectiveCamera(
-    1000,
+    -1500,
     window.innerWidth / window.innerHeight,
-    0.1,
+    1,
     100
 );
-camera.position.z = 150;
+camera.position.z = 1000;
 
 const scene = new THREE.Scene();
 
@@ -27,12 +30,11 @@ let mixer;
 const loader = new GLTFLoader();
 
 loader.load(
-    "./assets/solar_system_animation.glb", // FIXED PATH
+    "./assets/sun.glb", // FIXED PATH
     function (gltf) {
         solarsystem = gltf.scene;
-        solarsystem.position.y = -3;
-        solarsystem.position.x = 0;
-        solarsystem.rotation.x = -Math.PI / 6; // FIXED
+        solarsystem.position.y = -16;
+        solarsystem.position.x = 55;
         scene.add(solarsystem);
         mixer = new THREE.AnimationMixer(solarsystem);
         mixer.clipAction(gltf.animations[0]).play();
@@ -60,6 +62,9 @@ scene.add(ambientLight);
 const topLight = new THREE.DirectionalLight(0xffffff, 0.1);
 topLight.position.set(500, 500, 500);
 scene.add(topLight);
+
+// const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 2);
+// scene.add(hemiLight);
 
 
 // RENDER LOOP
@@ -102,51 +107,51 @@ window.addEventListener("scroll", () => {
     scrollY = window.scrollY;
 });
 
-const raycaster = new THREE.Raycaster();
-const mouse = new THREE.Vector2();
 
-window.addEventListener("click", (event) => {
-    autoRotate = !autoRotate
+// const raycaster = new THREE.Raycaster();
+// const mouse = new THREE.Vector2();
+// window.addEventListener("click", (event) => {
+//     autoRotate = !autoRotate
 
-    // shoot ray
-    raycaster.setFromCamera(mouse, camera);
+//     // shoot ray
+//     raycaster.setFromCamera(mouse, camera);
 
-    // check intersections
-    const intersects = raycaster.intersectObjects(scene.children, true);
+//     // check intersections
+//     const intersects = raycaster.intersectObjects(scene.children, true);
 
-    if (intersects.length > 0) {
-        const clickedObject = intersects[0].object;
-        const name = clickedObject.name.toLowerCase();
+//     if (intersects.length > 0) {
+//         const clickedObject = intersects[0].object;
+//         const name = clickedObject.name.toLowerCase();
 
-        if (name.includes("object_5")) {
-            window.location.href = "Mercury.html";
-        }
-        if (name.includes("object_8")) {
-            window.location.href = "Venus.html";
-        }
-        else if (name.includes("object_11")) {
-            window.location.href = "Earth.html";
-        }
-        else if (name.includes("object_14")) {
-            window.location.href = "Mars.html";
-        }
-        else if (name.includes("object_17")) {
-            window.location.href = "Jupiter.html";
-        }
-        else if (name.includes("object_20")) {
-            window.location.href = "Saturn.html";
-        }
-        else if (name.includes("object_25")) {
-            window.location.href = "Uranus.html";
-        }
-        else if (name.includes("object_28")) {
-            window.location.href = "Neptune.html";
-        }
-        else if (name.includes("object_56")) {
-            window.location.href = "Sun.html";
-        }
-        else {
-            console.log(name)
-        }
-    }
-});
+//         if (name.includes("object_5")) {
+//             window.location.href = "Mercury.html";
+//         }
+//         if (name.includes("object_8")) {
+//             window.location.href = "Venus.html";
+//         }
+//         else if (name.includes("object_11")) {
+//             window.location.href = "Earth.html";
+//         }
+//         else if (name.includes("object_14")) {
+//             window.location.href = "Mars.html";
+//         }
+//         else if (name.includes("object_17")) {
+//             window.location.href = "Jupiter.html";
+//         }
+//         else if (name.includes("object_20")) {
+//             window.location.href = "Saturn.html";
+//         }
+//         else if (name.includes("object_25")) {
+//             window.location.href = "Uranus.html";
+//         }
+//         else if (name.includes("object_28")) {
+//             window.location.href = "Neptune.html";
+//         }
+//         else if (name.includes("object_56")) {
+//             window.location.href = "Sun.html";
+//         }
+//         else {
+//             console.log(name)
+//         }
+//     }
+// });
