@@ -1,30 +1,13 @@
-// import * as THREE from "three";
-// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.module.js";
-import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.150.1/examples/jsm/loaders/GLTFLoader.js";
-
-// let planets = {
-//     "object_5": "Mercury",
-//     "object_8": "Venus",
-//     "object_11": "Earth",
-//     "object_14": "Mars",
-//     "object_17": "Jupiter",
-//     "object_20": "saturn",
-//     "object_25": "Uranus",
-//     "object_28": "Neptune",
-//     "object_56": "Sun"
-// }
+import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 let scrollY = 0;
-let mouseX = 0;
-let mouseY = 0;
 let isSelected = false;
 let isDragable = false;
 let autoRotate = true;
 
 let previousMouseX = 1;
 let previousMouseY = 1;
-// let camPositioning = 0;
 let deltaX = 1;
 let deltaY = 0;
 
@@ -39,24 +22,24 @@ camera.position.z = 150;
 
 const scene = new THREE.Scene();
 
-let spiderMan;
+let solarsystem;
 let mixer;
 const loader = new GLTFLoader();
 
 loader.load(
     "./assets/solar_system_animation.glb", // FIXED PATH
     function (gltf) {
-        spiderMan = gltf.scene;
-        spiderMan.position.y = -3;
-        spiderMan.position.x = 0;
-        spiderMan.rotation.x = -Math.PI / 6; // FIXED
-        scene.add(spiderMan);
-        // console.log(gltf.animations[0]);
-        mixer = new THREE.AnimationMixer(spiderMan);
+        solarsystem = gltf.scene;
+        solarsystem.position.y = -3;
+        solarsystem.position.x = 0;
+        solarsystem.rotation.x = -Math.PI / 6; // FIXED
+        scene.add(solarsystem);
+        mixer = new THREE.AnimationMixer(solarsystem);
         mixer.clipAction(gltf.animations[0]).play();
     },
     function (xhr) {
         console.log((xhr.loaded / xhr.total * 100) + "% loaded");
+        // console.log(p);
     },
     function (error) {
         console.error("Error loading model:", error);
@@ -71,16 +54,12 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.querySelector(".container3d").appendChild(renderer.domElement);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 // LIGHT
-const ambientLight = new THREE.AmbientLight(0xeedb00, 2); // FIXED SPELLING
+const ambientLight = new THREE.AmbientLight(0xffffff, 1.5); // FIXED SPELLING
 scene.add(ambientLight);
 
-const topLight = new THREE.DirectionalLight(0xeedb00, 2.5);
+const topLight = new THREE.DirectionalLight(0xffffff, 0.1);
 topLight.position.set(500, 500, 500);
 scene.add(topLight);
-
-const hemiLight = new THREE.HemisphereLight(0xeedb00, 0xeedb00, 2);
-scene.add(hemiLight);
-
 
 // RENDER LOOP
 const reRender3D = () => {
@@ -88,16 +67,10 @@ const reRender3D = () => {
     renderer.render(scene, camera);
     if (mixer) mixer.update(0.006);
 
-    if (autoRotate && spiderMan) {
-        spiderMan.rotation.y += (-deltaX * Math.PI - spiderMan.rotation.y) * 0.002;
-        spiderMan.rotation.x += (-deltaY * Math.PI / 4 - spiderMan.rotation.x) * 0.002;
+    if (autoRotate && solarsystem) {
+        solarsystem.rotation.y += (-deltaX * Math.PI - solarsystem.rotation.y) * 0.002;
+        solarsystem.rotation.x += (-deltaY * Math.PI / 4 - solarsystem.rotation.x) * 0.002;
     }
-
-    // if (autoRotate && spiderMan) {
-    //     spiderMan.rotation.y += (-Math.random() * 1* Math.PI - spiderMan.rotation.y) * 0.002;
-    //     spiderMan.rotation.x += (-Math.random() * 1 * Math.PI / 4 - spiderMan.rotation.x) * 0.002;
-    // }
-
     camera.position.z = 60 + scrollY * 0.01;
 
 };
@@ -126,7 +99,6 @@ document.addEventListener("mousemove", (e) => {
 
 window.addEventListener("scroll", () => {
     scrollY = window.scrollY;
-    // camera.position.z -+ 1 
 });
 
 const raycaster = new THREE.Raycaster();
@@ -134,7 +106,8 @@ const mouse = new THREE.Vector2();
 
 window.addEventListener("click", (event) => {
     autoRotate = !autoRotate
-    // convert mouse to normalized coordinates (-1 to +1)
+
+    //this will stores the current mouse location while clicking the planets
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
@@ -151,7 +124,7 @@ window.addEventListener("click", (event) => {
         if (name.includes("object_5")) {
             window.location.href = "Mercury.html";
         }
-        else if (name.includes("object_8")) {
+        if (name.includes("object_8")) {
             window.location.href = "Venus.html";
         }
         else if (name.includes("object_11")) {
@@ -176,7 +149,16 @@ window.addEventListener("click", (event) => {
             window.location.href = "Sun.html";
         }
         else {
-            alert(name)
+            console.log(name)
         }
     }
 });
+
+window.addEventListener("touchmove",()=>{
+    previousMouseX = e.clientX;
+    previousMouseY = e.clientY;
+    deltaX = e.clientX - previousMouseX;
+    deltaY = e.clientY - previousMouseY;
+    previousMouseX = e.clientX;
+    previousMouseY = e.clientY;
+})

@@ -16,6 +16,8 @@ body {
     background-color: transparent;
 }
 
+/* STARS CSS */
+
 .space {
     width: 100vw;
     height: 100vh;
@@ -49,5 +51,56 @@ body {
 
     100% {
         opacity: 1;
+    }
+}
+/*END STARS CSS */
+
+
+.title{
+    position: absolute;
+    top: 10px;
+    left: 10px
+}
+
+.title h1{
+    color: whitesmoke;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 2.5px;
+    word-spacing: 5px;
+}
+
+.flicker-text:hover{
+    animation: flicker 0.6s forwards ease-in-out;
+}
+
+@keyframes flicker {
+    0% {
+        background: linear-gradient(45deg, white 5%, gray 30%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    } 25%{
+        background: linear-gradient(45deg, gray 15%, white 20%, gray 40%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    50% {
+        background: linear-gradient(45deg, gray 20%, white 30%, gray 50%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    75%{
+        background: linear-gradient(45deg, gray 35%, white 40%, gray 60%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    90%{
+        background: linear-gradient(45deg, gray 50%, white 60%,  gray 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+    }
+    100%{
+        background: linear-gradient(45deg, gray 80%, gray 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; 
     }
 }
