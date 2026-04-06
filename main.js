@@ -153,3 +153,12 @@ window.addEventListener("click", (event) => {
         }
     }
 });
+
+window.addEventListener("touchmove",()=>{
+    previousMouseX = e.clientX;
+    previousMouseY = e.clientY;
+    deltaX = e.clientX - previousMouseX;
+    deltaY = e.clientY - previousMouseY;
+    previousMouseX = e.clientX;
+    previousMouseY = e.clientY;
+})
