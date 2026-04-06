@@ -38,8 +38,8 @@ loader.load(
         mixer.clipAction(gltf.animations[0]).play();
     },
     function (xhr) {
-        let p = (xhr.loaded / xhr.total * 100) + "% loaded"
-        console.log(p);
+        console.log((xhr.loaded / xhr.total * 100) + "% loaded");
+        // console.log(p);
     },
     function (error) {
         console.error("Error loading model:", error);
@@ -60,7 +60,6 @@ scene.add(ambientLight);
 const topLight = new THREE.DirectionalLight(0xffffff, 0.1);
 topLight.position.set(500, 500, 500);
 scene.add(topLight);
-
 
 // RENDER LOOP
 const reRender3D = () => {
@@ -107,6 +106,10 @@ const mouse = new THREE.Vector2();
 
 window.addEventListener("click", (event) => {
     autoRotate = !autoRotate
+
+    //this will stores the current mouse location while clicking the planets
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
     // shoot ray
     raycaster.setFromCamera(mouse, camera);
