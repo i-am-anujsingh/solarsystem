@@ -4,10 +4,10 @@ let maxY = window.innerHeight;
 let space = document.getElementById("space")
 // alert(Math.random())
 
-for (let index = 0; index < 150; index++) {
+for (let index = 0; index < 200; index++) {
     let star = document.createElement("div");
     star.className = "stars";
-    let scale = Math.random() * 1; // random number between 0 and 5
+    let scale = Math.random() * 0.6; // random number between 0 and 5
     star.style.transform = `scale(${scale})`;   
     // Randomize position within the viewport
     star.style.top = Math.random() * window.innerHeight + "px";

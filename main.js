@@ -1,15 +1,44 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
+const scene = new THREE.Scene();
+let solarsystem;
+let mixer;
+const loader = new GLTFLoader();
 let scrollY = 0;
 let isSelected = false;
 let isDragable = false;
 let autoRotate = true;
-
 let previousMouseX = 1;
 let previousMouseY = 1;
 let deltaX = 1;
 let deltaY = 0;
+let showMenu = false;
+let delay;
+let menuBtn = document.querySelector("#menuBtn");
+let menuOptions = document.querySelectorAll(".menuOptions");
+
+menuBtn.addEventListener("click", () => {
+    showMenu = !showMenu;
+    delay = 0;
+    menuOptions.forEach((mo) => {
+        if (showMenu) {
+            mo.style.animation = `slide ${0.1 + delay}s linear forwards`;
+        } else {
+            mo.style.animation = `rslide ${0.1 + delay}s linear forwards`;
+        }
+        delay = delay + 0.03;
+    });
+
+    setTimeout(()=>{
+        delay = 0;
+        menuOptions.forEach((mo) => {
+            mo.style.animation = `rslide ${0.1 + delay}s linear forwards`;
+            delay = delay + 0.03;
+        });
+        showMenu = !showMenu;
+    },3000);
+});
 
 
 const camera = new THREE.PerspectiveCamera(
@@ -19,12 +48,6 @@ const camera = new THREE.PerspectiveCamera(
     100
 );
 camera.position.z = 150;
-
-const scene = new THREE.Scene();
-
-let solarsystem;
-let mixer;
-const loader = new GLTFLoader();
 
 loader.load(
     "./assets/solar_system_animation.glb", // FIXED PATH
@@ -148,13 +171,16 @@ window.addEventListener("click", (event) => {
         else if (name.includes("object_56")) {
             window.location.href = "Sun.html";
         }
+        else if (name.includes("object_31")) {
+            console.log(name) // pluto
+        }
         else {
             console.log(name)
         }
     }
 });
 
-window.addEventListener("touchmove",()=>{
+window.addEventListener("touchmove", () => {
     previousMouseX = e.clientX;
     previousMouseY = e.clientY;
     deltaX = e.clientX - previousMouseX;

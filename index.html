@@ -9,15 +9,47 @@
 </head>
 
 <body>
-    <div class="title">
-        <h1 class="flicker-text">Our Solar System</h1>
-    </div>
-    <div id="space" class="space">
-        <div class="stars"></div>
-    </div>
+    <header>
+        <div id="topNav" ><button id="menuBtn" class="navBtn">≡</button><h1 class="flicker-text">Our Solar System</h1></div>
+        <nav id="menuBar" class="">
+            <a class="menuOptions slide-out" href="Sun.html" id="sunBtn">Sun</a>
+            <a class="menuOptions slide-out" href="Mercury.html" id="mercuryBtn">Mercury</a>
+            <a class="menuOptions slide-out" href="Venus.html" id="venusBtn">Venus</a>
+            <a class="menuOptions slide-out" href="Earth.html" id="earthBtn">Earth</a>
+            <a class="menuOptions slide-out" href="Mars.html" id="marsBtn">Mars</a>
+            <a class="menuOptions slide-out" href="Jupiter.html" id="jupiterBtn">Jupiter</a>
+            <a class="menuOptions slide-out" href="Saturn.html" id="saturnBtn">Saturn</a>
+            <a class="menuOptions slide-out" href="Uranus.html" id="uranusBtn">Uranus</a>
+            <a class="menuOptions slide-out" href="Neptune.html" id="neptuneBtn">Neptune</a>
+        </nav>
+    </header>
+
+    <!-- to contain stars and display the space atmosphere -->
+    <div id="space" class="space"></div>
 
     <!-- to contain the 3d model -->
     <div class="container3d"></div>
+
+    <!-- to contain information about the displaying content -->
+    <div class="infoabout">
+        <div class="inforow">
+            <div class="infobox">
+                <p class="unselectable"><strong>Stars vs. Sand:</strong> Astronomers estimate there are 200 billion trillion stars in the observable universe—far more than all the grains of sand on Earth’s beaches</p>
+            </div>
+            <div class="infobox">
+                 <p class="unselectable"><strong>Cosmic Speed Limit:</strong> Nothing can travel faster than the speed of light, which is about 300,000 km per second. That means light from the Sun takes about 8 minutes to reach Earth.</p>               
+            </div>
+        </div>
+        <div class="inforow">
+            <div class="infobox">
+                <p class="unselectable"><strong>Dark Mystery:</strong> About 95% of the universe is made up of dark matter and dark energy, which we cannot see directly but know exists because of its gravitational effects.</p>
+            </div>
+            <div class="infobox">
+                <p class="unselectable">Near a black hole, time slows down (this is called gravitational time dilation).</p>
+            </div>
+        </div>
+    </div>
+
 
     <script type="importmap">
     {
