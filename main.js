@@ -33,18 +33,18 @@ menuBtn.addEventListener("click", () => {
 
 
 const camera = new THREE.PerspectiveCamera(
-    1000,
+    60,
     window.innerWidth / window.innerHeight,
-    0.1,
+    1,
     100
 );
-camera.position.z = 150;
+camera.position.z = 100;
 
 loader.load(
     "./assets/solar_system_animation.glb", // FIXED PATH
     function (gltf) {
         solarsystem = gltf.scene;
-        solarsystem.position.y = -3;
+        solarsystem.position.y = 0;
         solarsystem.position.x = 0;
         solarsystem.rotation.x = -Math.PI / 6; // FIXED
         scene.add(solarsystem);
@@ -53,7 +53,6 @@ loader.load(
     },
     function (xhr) {
         console.log((xhr.loaded / xhr.total * 100) + "% loaded");
-        // console.log(p);
     },
     function (error) {
         console.error("Error loading model:", error);
@@ -148,7 +147,7 @@ window.addEventListener("click", (event) => {
             window.location.href = "./planets/Mars.html";
         }
         else if (name.includes("object_17")) {
-            window.location.href = "./planets/Jupiter.html";
+            window.location.href = "J./planets/upiter.html";
         }
         else if (name.includes("object_20")) {
             window.location.href = "./planets/Saturn.html";

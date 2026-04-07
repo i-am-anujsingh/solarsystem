@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uranus</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="title">
+        <header>
+            <div id="topNav"><a href="../index.html" id="backBtn" class="navBtn">«</a>
+                <h1 class="flicker-text">Uranus</h1>
+            </div>
+        </header>
+    </div>
+
+    <!-- to contain stars and display the space atmosphere -->
+    <div id="space" class="space"></div>
+    <!-- to contain the 3d model -->
+    <div class="container3d"></div>
+
+    <!-- to contain information about the displaying content -->
+    <div class="infoabout">
+        <div class="inforow">
+            <div class="infobox">
+                <p class="unselectable">Uranus is the 7th planet from the Sun and is known for its unusual tilt. It is an ice giant (IG).</p>
+            </div>
+            <div class="infobox">
+                <p class="unselectable"><strong>Uranus rotates on its side:</strong> Tilt ≈ 98°. It looks like it is rolling instead of spinning</p>
+            </div>
+        </div>
+        <div class="inforow">
+            <div class="infobox">
+                <p class="unselectable">
+                    Uranus was the first planet discovered using a telescope. <strong>Discovered by William Herschel in 1781.</strong>
+                </p>
+            </div>
+            <div class="infobox">
+                <p class="unselectable">
+                <ul class="unselectable">
+                    <li><strong>Uranus is very cold:</strong> Temperature can go below −224°C.
+                    <li><strong>Major moons of Uranus include:</strong> Titania, Oberon, Umbriel, Ariel, Miranda
+                    <li><strong>Uranus has extreme seasons:</strong> Each pole gets 42 years of sunlight followed by 42 years of darkness.
+                    <li><strong>Only one spacecraft has visited Uranus:</strong> Voyager 2.
+                    <li>Saturn emits its own heat.
+                    <li>Saturn is the least dense planet.
+                </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.module.js",
+            "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.150.1/examples/jsm/"
+        }
+    }
+    </script>
+
+    <script type="module" src="./model.js"></script>
+    <script src="../starBg.js"></script>
+</body>
+
+</html>

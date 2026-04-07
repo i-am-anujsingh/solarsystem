@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saturn</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="title">
+        <header>
+            <div id="topNav"><a href="../index.html" id="backBtn" class="navBtn">«</a>
+                <h1 class="flicker-text">Saturn</h1>
+            </div>
+        </header>
+    </div>
+
+    <!-- to contain stars and display the space atmosphere -->
+    <div id="space" class="space"></div>
+    <!-- to contain the 3d model -->
+    <div class="container3d"></div>
+
+    <!-- to contain information about the displaying content -->
+    <div class="infoabout">
+        <div class="inforow">
+            <div class="infobox">
+                <p class="unselectable">Saturn is the 6th planet from the Sun and is best known for its beautiful ring system. Like Jupiter, it is a gas giant (GG).</p>
+            </div>
+            <div class="infobox">
+                <p class="unselectable"><strong>Saturn has the most visible rings:</strong> Made of ice, rock, and dust particles. These rings are divided into many smaller ring sections.</p>
+            </div>
+        </div>
+        <div class="inforow">
+            <div class="infobox">
+                <p class="unselectable">
+                <ul class="unselectable">
+                    <li><strong>A day on Saturn is very short:</strong> About 10.7 hours.
+                    <li><strong>Saturn has many moons (140+ known)</strong>
+                    <li>Saturn’s largest moon is Titan.
+                    <li>Saturn emits its own heat.
+                    <li>Saturn is the least dense planet.
+                </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.module.js",
+            "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.150.1/examples/jsm/"
+        }
+    }
+    </script>
+
+    <script type="module" src="./model.js"></script>
+    <script src="../starBg.js"></script>
+</body>
+
+</html>

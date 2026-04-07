@@ -12,7 +12,7 @@ let autoRotate = true;
 let previousMouseX = 1;
 let previousMouseY = 1;
 let deltaX = -1;
-let deltaY = 0;
+let deltaY = 1;
 let model;
 let fov = 1;
 
@@ -22,7 +22,7 @@ if (window.location.href.includes("Mercury.html")) { model = "../assets/mercury.
 else if (window.location.href.includes("Mars.html")) { model = "../assets/mars.glb"; fov = 15; }
 else if (window.location.href.includes("Jupiter.html")) { model = "../assets/jupiter.glb"; fov = 10; }
 else if (window.location.href.includes("Saturn.html")) { model = "../assets/saturn.glb"; fov = 10; }
-else if (window.location.href.includes("Uranus.html")) { model = "../assets/uranus.glb"; fov = 1; }
+else if (window.location.href.includes("Uranus.html")) { model = "../assets/uranus.glb"; fov = 1; deltaX=2; deltaY =0;}
 else if (window.location.href.includes("Neptune.html")) { model = "../assets/neptune.glb"; fov = 60; }
 else if (window.location.href.includes("Sun.html")) { model = "../assets/sun.glb"; fov = 60; }
 
@@ -46,7 +46,6 @@ loader.load(
     },
     function (xhr) {
         let p = (xhr.loaded / xhr.total * 100) + "% loaded"
-        console.log(p);
     },
     function (error) {
         console.error("Error loading model:", error);
@@ -103,6 +102,5 @@ document.addEventListener("mousemove", (e) => {
         deltaY = e.clientY - previousMouseY;
         previousMouseX = e.clientX;
         previousMouseY = e.clientY;
-        scrollY = e.clientY
     }
 });
