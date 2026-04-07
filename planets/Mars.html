@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="title">
+        <header>
+            <div id="topNav"><a href="../index.html" id="backBtn" class="navBtn">«</a>
+                <h1 class="flicker-text">Mars</h1>
+            </div>
+        </header>
+    </div>
+
+    <!-- to contain stars and display the space atmosphere -->
+    <div id="space" class="space"></div>
+    <!-- to contain the 3d model -->
+    <div class="container3d"></div>
+
+    <!-- to contain information about the displaying content -->
+    <div class="infoabout">
+        <div class="inforow">
+            <div class="infobox">
+                <p class="unselectable"><strong>Mars has the largest volcano in the solar system:</strong> Olympus Mons, About 3 times taller than Mount Everest</p>
+            </div>
+            <div class="infobox">
+                <p class="unselectable"><strong>Mars has two small moons:</strong> Phobos and Deimos</p>
+            </div>
+        </div>
+        <div class="inforow">
+            <div class="infobox">
+                <p class="unselectable">
+                <ul class="unselectable">
+                    <li><strong>A day on Mars is similar to Earth:</strong> ~24.6 hours
+                    <li><strong>A year on Mars is longer:</strong> 687 Earth days.
+                    <li>Mars has a giant canyon system
+                    <li>Mars has seasons like Earth.
+                    <li>Mars sunsets are blue
+                </ul>
+                </p>
+            </div>
+            <div class="infobox">
+                <p class="unselectable">
+                    Mars is the 4th planet from the Sun and is often called the Red Planet because of its reddish appearance. The color comes from iron oxide (rust) on its surface.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.module.js",
+            "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.150.1/examples/jsm/"
+        }
+    }
+    </script>
+
+    <script type="module" src="./model.js"></script>
+    <script src="../starBg.js"></script>
+</body>
+
+</html>

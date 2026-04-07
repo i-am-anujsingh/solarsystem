@@ -29,15 +29,6 @@ menuBtn.addEventListener("click", () => {
         }
         delay = delay + 0.03;
     });
-
-    setTimeout(()=>{
-        delay = 0;
-        menuOptions.forEach((mo) => {
-            mo.style.animation = `rslide ${0.1 + delay}s linear forwards`;
-            delay = delay + 0.03;
-        });
-        showMenu = !showMenu;
-    },3000);
 });
 
 
