@@ -136,31 +136,31 @@ window.addEventListener("click", (event) => {
         const name = clickedObject.name.toLowerCase();
 
         if (name.includes("object_5")) {
-            window.location.href = "Mercury.html";
+            window.location.href = "./planets/Mercury.html";
         }
         if (name.includes("object_8")) {
-            window.location.href = "Venus.html";
+            window.location.href = "./planets/Venus.html";
         }
         else if (name.includes("object_11")) {
-            window.location.href = "Earth.html";
+            window.location.href = "./planets/Earth.html";
         }
         else if (name.includes("object_14")) {
-            window.location.href = "Mars.html";
+            window.location.href = "./planets/Mars.html";
         }
         else if (name.includes("object_17")) {
-            window.location.href = "Jupiter.html";
+            window.location.href = "./planets/Jupiter.html";
         }
         else if (name.includes("object_20")) {
-            window.location.href = "Saturn.html";
+            window.location.href = "./planets/Saturn.html";
         }
         else if (name.includes("object_25")) {
-            window.location.href = "Uranus.html";
+            window.location.href = "./planets/Uranus.html";
         }
         else if (name.includes("object_28")) {
-            window.location.href = "Neptune.html";
+            window.location.href = "./planets/Neptune.html";
         }
         else if (name.includes("object_56")) {
-            window.location.href = "Sun.html";
+            window.location.href = "./planets/Sun.html";
         }
         else if (name.includes("object_31")) {
             console.log(name) // pluto

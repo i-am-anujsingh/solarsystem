@@ -61,7 +61,6 @@ body {
         opacity: 1;
     }
 }
-
 /*END STARS CSS */
 
 
@@ -185,7 +184,7 @@ nav a {
     background-color: rgba(0, 0, 43, 0.708);
     margin: 9rem;
     padding: 1rem;
-    animation: flicker 1.5s ease-in-out;
+    animation: flicker 0.8s ease-in-out;
 }
 
 .infobox p,
@@ -198,7 +197,7 @@ ul li {
 }
 
 ul li {
-    margin: 10px 0;
+    margin: 10px 5px;
 }
 
 .unselectable {
