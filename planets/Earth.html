@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="title">
+        <header>
+            <div id="topNav"><a href="../index.html" id="backBtn" class="navBtn">«</a>
+                <h1 class="flicker-text">Earth</h1>
+            </div>
+        </header>
+    </div>
+
+    <!-- to contain stars and display the space atmosphere -->
+    <div id="space" class="space"></div>
+    <!-- to contain the 3d model -->
+    <div class="container3d"></div>
+
+    <!-- to contain information about the displaying content -->
+    <div class="infoabout">
+        <div class="inforow">
+            <div class="infobox">
+                <p class="unselectable"><strong>Earth is the 3rd planet from the Sun and the only known planet that supports life. It is a terrestrial planet (TP), meaning it has a solid, rocky surface.</strong></p>
+            </div>
+            <div class="infobox">
+                <p class="unselectable"><strong>Earth has one natural satellite (moon):</strong> Moon</p>
+            </div>
+        </div>
+        <div class="inforow">
+            <div class="infobox">
+                <p class="unselectable">
+                <ul class="unselectable">
+                    <li><strong>Earth is slightly tilted:</strong> Tilt ≈ 23.5°.
+                    <li><strong>Earth is not a perfect sphere:</strong> It is an Oblate Spheroid.
+                    <li>Earth has plate tectonics.
+                    <li><strong>Earth has different layers:</strong> Crust → Mantle → Core.
+                    <li>Earth’s core is extremely hot. Temperature ≈ 5000–6000°C
+                    <li><strong>Earth has a perfect distance from the Sun:</strong> Habitable Zone.
+                </ul>
+                </p>
+            </div>
+            <div class="infobox">
+                <p class="unselectable">
+                <ul class="unselectable">
+                    <li><strong>Earth is about 4.5 billion years old.</strong>
+                    <li><strong>Earth’s atmosphere has different layers:</strong> Troposphere → Stratosphere → Mesosphere → Thermosphere → Exosphere.
+                    <li><strong>Earth’s tilt changes slowly over time:</strong> This affects long-term climate called Milankovitch Cycles.
+                </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.module.js",
+            "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.150.1/examples/jsm/"
+        }
+    }
+    </script>
+
+    <script type="module" src="./model.js"></script>
+    <script src="../starBg.js"></script>
+</body>
+
+</html>

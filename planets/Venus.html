@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venus</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="title">
+        <header>
+            <div id="topNav"><a href="../index.html" id="backBtn" class="navBtn">«</a>
+                <h1 class="flicker-text">Venus</h1>
+            </div>
+        </header>
+    </div>
+
+    <!-- to contain stars and display the space atmosphere -->
+    <div id="space" class="space"></div>
+    <!-- to contain the 3d model -->
+    <div class="container3d"></div>
+
+    <!-- to contain information about the displaying content -->
+    <div class="infoabout">
+        <div class="inforow">
+            <div class="infobox">
+                <p class="unselectable"><strong>Venus is the 2nd planet from the Sun and is often called Earth’s twin because of its similar size and structure. However, its conditions are extremely harsh. It is a terrestrial planet (TP).</strong></p>
+                <p class="unselectable"><strong>Space missions have explored Venus:</strong> Like Venera</p>
+            </div>
+            <div class="infobox">
+                <p class="unselectable">
+                    <ul>
+                        <li><strong>Venus is the hottest planet:</strong> Surface temperature ≈ 465°C.
+                        <li><strong>Venus is covered with clouds of sulfuric acid.</strong>
+                        <li><strong>Venus is very bright in the sky:</strong> Called the “Morning Star” or “Evening Star”.
+                    </ul> 
+                </p>  
+            </div>
+        </div>
+        <div class="inforow">
+            <div class="infobox">
+                <p class="unselectable">
+                <ul class="unselectable">
+                    <li><strong>Venus has a very thick atmosphere:</strong> Mostly carbon dioxide (CO₂).
+                    <li><strong>Venus has a strong greenhouse effect.</strong>
+                    <li><strong>Venus rotates backwards:</strong> This is called Retrograde Rotation.
+                    <li><strong>The Sun rises in the west on Venus.</strong>
+                    <li>Venus has no moons and no rings.
+                </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.module.js",
+            "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.150.1/examples/jsm/"
+        }
+    }
+    </script>
+
+    <script type="module" src="./model.js"></script>
+    <script src="../starBg.js"></script>
+</body>
+
+</html>

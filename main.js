@@ -41,12 +41,12 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.z = 100;
 
 loader.load(
-    "./assets/solar_system_animation.glb", // FIXED PATH
+    "./assets/solar_system_animation.glb",
     function (gltf) {
         solarsystem = gltf.scene;
         solarsystem.position.y = 0;
         solarsystem.position.x = 0;
-        solarsystem.rotation.x = -Math.PI / 6; // FIXED
+        solarsystem.rotation.x = -Math.PI / 6;
         scene.add(solarsystem);
         mixer = new THREE.AnimationMixer(solarsystem);
         mixer.clipAction(gltf.animations[0]).play();
@@ -67,14 +67,14 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.querySelector(".container3d").appendChild(renderer.domElement);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 // LIGHT
-const ambientLight = new THREE.AmbientLight(0xffffff, 1.5); // FIXED SPELLING
+const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
 scene.add(ambientLight);
 
 const topLight = new THREE.DirectionalLight(0xffffff, 0.1);
 topLight.position.set(500, 500, 500);
 scene.add(topLight);
 
-// RENDER LOOP
+// Loop to render/load the 3d model again and again.
 const reRender3D = () => {
     requestAnimationFrame(reRender3D);
     renderer.render(scene, camera);
@@ -147,7 +147,7 @@ window.addEventListener("click", (event) => {
             window.location.href = "./planets/Mars.html";
         }
         else if (name.includes("object_17")) {
-            window.location.href = "J./planets/upiter.html";
+            window.location.href = "./planets/Jupiter.html";
         }
         else if (name.includes("object_20")) {
             window.location.href = "./planets/Saturn.html";

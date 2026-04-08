@@ -17,8 +17,8 @@ let model;
 let fov = 1;
 
 if (window.location.href.includes("Mercury.html")) { model = "../assets/mercury.glb"; fov = 50; }
-// else if(window.location.href.includes("Venus.html")) { model = "../assets/venus.glb"; fov=1; }
-// else if(window.location.href.includes("Earth.html")) { model = "../assets/earth.glb"; fov=1; }
+else if(window.location.href.includes("Venus.html")) { model = "../assets/venus.glb"; fov=6; }
+else if(window.location.href.includes("Earth.html")) { model = "../assets/earth.glb"; fov=8; }
 else if (window.location.href.includes("Mars.html")) { model = "../assets/mars.glb"; fov = 15; }
 else if (window.location.href.includes("Jupiter.html")) { model = "../assets/jupiter.glb"; fov = 10; }
 else if (window.location.href.includes("Saturn.html")) { model = "../assets/saturn.glb"; fov = 10; }
@@ -57,19 +57,16 @@ const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.querySelector(".container3d").appendChild(renderer.domElement);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
+
 // LIGHT
 const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
 scene.add(ambientLight);
 
-const topLight = new THREE.DirectionalLight(0xffffff, 0.1);
+const topLight = new THREE.DirectionalLight(0xffffff, 0.8);
 topLight.position.set(500, 500, 500);
 scene.add(topLight);
 
-const hemiLight = new THREE.HemisphereLight(0x000, 0xffffff, 2);
-scene.add(hemiLight);
-
-
-// RENDER LOOP
+// Loop to render/load the 3d model again and again.
 const reRender3D = () => {
     requestAnimationFrame(reRender3D);
     renderer.render(scene, camera);
