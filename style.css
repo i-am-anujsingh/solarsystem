@@ -217,54 +217,37 @@ ul li {
     user-select: none;
     /* Standard */
 }
-
 .infobox:hover {
     transform: scale(1.1);
 }
-
 
 @keyframes flicker {
     0% {
         opacity: 0;
     }
-
     5% {
         opacity: 1;
     }
-
     8% {
         opacity: 0;
     }
-
     12% {
         opacity: 1;
     }
-
     20% {
         opacity: 0;
     }
-
     25% {
         opacity: 1;
     }
-
     40% {
         opacity: 0;
     }
-
     45% {
-        opacity: 1;
-    }
-
+        opacity: 1;}
     60% {
-        opacity: 0;
-    }
-
+        opacity: 0;}
     70% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 1;
-    }
+    opacity: 1;}
+    100% {opacity: 1;}
 }
