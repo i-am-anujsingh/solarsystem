@@ -96,17 +96,17 @@ solarsystem/
 * Add planet orbit animations
 * Add sound effects and narration
 * Improve mobile responsiveness
-* Add user controls (zoom, rotate, speed control)
+* Add more user controls (zoom, speed control, etc.)
 * Add real-time data and API integration
 
 ---
 
 ## 👨‍💻 Author
 
-**Anuj Singh**
-**Sanjay Joshi**
+**Anuj Singh** | 
+**Sanjay Joshi** | 
 **Aman Agrahari**
-* BCA Student | Game Developer | Full-Stack Developer
+* BCA Student | Game Developer | Software Developer
 * Passionate about coding, 3D web, and interactive experiences
 
 ---
